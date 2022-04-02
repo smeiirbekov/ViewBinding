@@ -16,7 +16,7 @@ import kotlin.reflect.KProperty
  * DO NOT CALL setContentView or pass layoutId to the activity constructor as inflation will happen here.
  * @return [ViewBinding]
  * */
-fun <B : ViewBinding> ComponentActivity.viewBinding(
+fun <B : ViewBinding> ComponentActivity.inflateBinding(
     inflate: (inflater: LayoutInflater) -> B
 ) = object : ReadOnlyProperty<ComponentActivity, B> {
 
