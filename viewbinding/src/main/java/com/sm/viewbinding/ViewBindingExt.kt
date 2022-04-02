@@ -28,7 +28,7 @@ fun <B : ViewBinding> Fragment.viewBinding(
     private fun checkBinding(){
         if (binding == null &&
             view != null &&
-            viewLifecycleOwnerLiveData.value?.lifecycle?.currentState != Lifecycle.State.DESTROYED
+            viewLifecycleOwnerLiveData.value?.lifecycle?.currentState?.isAtLeast(Lifecycle.State.INITIALIZED) == true
         ) {
             binding = bind(requireView())
         }
